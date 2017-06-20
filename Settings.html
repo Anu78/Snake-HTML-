@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet">
+  <title>Snake! The Game</title>
+  <link rel="stylesheet" href="Settings.css">
+</head>
+
+<body id="body">
+      <h1 id="title">
+        Snake! The Game
+      </h1>
+
+      <h2 id="description">
+        Please Specify The Game Settings Below
+      </h2>
+        <h3 id = "speedHead">
+          Snake Speed
+        </h3>
+
+        <button class="buttons" id="minusSpeed" onclick="minusSpeed();">
+        Less
+      </button>
+
+        <p id="snakeSpeed">
+          7
+        </p>
+
+        <button class="buttons" id="plusSpeed" onclick="plusSpeed();">
+        More
+      </button>
+
+        <h3 id = "gridHead">
+          Grid Size
+        </h3>
+
+        <button class="buttons" id="minusGSize" onclick="minusGridSize();">
+        Less
+      </button>
+
+        <p id="gridSize">
+          21
+        </p>
+
+        <button class="buttons" id="plusGSize" onclick="plusGridSize();">
+        More
+      </button>
+        <div id = "center">
+        <a id="playLink" href="PlayTheGame.html">Play!</a>
+        </div>
+  <script>
+      var Speed;
+      var fGridSize;
+      //Settings
+      var nSpeed = document.getElementById("snakeSpeed");
+      var speed = parseInt(document.getElementById("snakeSpeed").textContent,10);
+
+      var minusSpeed = function(){
+        if(speed === 1){
+          return;
+        }
+        else {
+          speed--;
+          nSpeed.textContent = speed.toString();
+          window.localStorage.setItem("snakeSpeed", speed);
+        }
+      };
+
+      var plusSpeed = function(){
+        if(speed === 10){
+          return;
+        }
+        else {
+          speed++;
+          nSpeed.textContent = speed.toString();
+          window.localStorage.setItem("snakeSpeed", speed);
+        }
+      };
+
+      //Grid Size
+      var nGridSize = document.getElementById("gridSize");  
+      var gridSize =  parseInt(document.getElementById("gridSize").textContent,10);
+
+      var minusGridSize = function(){
+        if(gridSize === 15){
+          return;
+        }
+        else {
+          gridSize-=2;
+          nGridSize.textContent = gridSize.toString();
+          window.localStorage.setItem("gridSize", gridSize);
+        }
+      };
+
+      var plusGridSize = function(){
+        if(gridSize === 25){
+          return;
+        }
+        else {
+          gridSize+=2;
+          nGridSize.textContent = gridSize.toString();
+          window.localStorage.setItem("gridSize", gridSize);
+        }
+      };
+    </script>
+</body>
+
+</html>

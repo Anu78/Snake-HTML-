@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Snake! The Game</title>
+  <link rel="stylesheet" href="PlayTheGame.css">
+</head>
+
+<body>
+  <canvas id="canvas" width = "1920" height = "1080"></canvas>
+
+
+
+  <script>
+  var snakeSpeed = window.localStorage.getItem("snakeSpeed");
+  var gridSize = window.localStorage.getItem("gridSize");
+  gridSize = parseInt(gridSize,10);
+  snakeSpeed = parseInt(snakeSpeed,10);
+  var canvas = document.getElementById("canvas");
+  var context = canvas.getContext("2d");
+  canvas.setAttribute("width",window.innerWidth);
+  canvas.setAttribute("height",window.innerHeight);
+  //Grid Generation
+function genGrid(gs){
+  for(var i = 1; i <= 55;i++){
+    for(var a = 1; a <= 90;a++){
+      context.rect(a*20,i*20,20,20);
+    }
+    context.stroke();  
+};
+  };
+  genGrid(gridSize);
+       
+       function fillSquare(x,y,head){
+       
+       };
+       function genTarget(){
+       var x = Math.floor(Math.random() * 94);
+       var y = Math.floor(Math.random() * 56);
+       fillSquare(x,y);
+       };
+       genTarget();
+  </script>
+</body>
+
+</html>
